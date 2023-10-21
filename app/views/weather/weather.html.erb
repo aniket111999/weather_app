@@ -1,0 +1,28 @@
+
+<% if flash[:error] %>
+  <div class="alert alert-danger"><%= flash[:error] %></div>
+<% end %>
+
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+         <div class="card mt-5">
+         <div class="d-flex justify-content-end" >
+                    <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %>
+               </div>
+            <div class="card-header text-center"><h2>Get Your Cities Current Weather Report with Just One Click !!!<h2></div>
+              <div class="card-body">
+              <%= form_with(url: weather_data_path, method: "get", local: true) do %>
+                <div class="form-group text-center">
+                  <%= label_tag 'City Name :' %>
+                  <%= text_field_tag 'city_name' %>
+                </div>
+                <div class="form-group text-center" style="margin-top: 10px;">
+                  <%= submit_tag 'Get Weather Report', class: "btn btn-primary" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

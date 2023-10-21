@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+      <h2><%=@weather_data["name"]%>: Current Weather Information</h2>
+      <div class="d-flex justify-content-end" >
+           <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  <table class="table">
+    <tr>
+      <th>Coordinates</th>
+      <td>Latitude: <%= @weather_data["coord"]["lat"] %></td>
+      <td>Longitude: <%= @weather_data["coord"]["lon"] %></td>
+    </tr>
+    <tr>
+      <th>Weather</th>
+      <td>Main: <%= @weather_data["weather"][0]["main"] %></td>
+      <td>Description: <%= @weather_data["weather"][0]["description"] %></td>
+    </tr>
+    <tr>
+      <th>Main</th>
+      <td>Temperature: <%= @weather_data["main"]["temp"] %> K</td>
+      <td>Feels Like: <%= @weather_data["main"]["feels_like"] %> K</td>
+      <td>Pressure: <%= @weather_data["main"]["pressure"] %> hPa</td>
+      <td>Humidity: <%= @weather_data["main"]["humidity"] %> %</td>
+    </tr>
+    <tr>
+      <th>Wind</th>
+      <td>Speed: <%= @weather_data["wind"]["speed"] %> m/s</td>
+      <td>Deg: <%= @weather_data["wind"]["deg"] %> degrees</td>
+    </tr>
+  </table>
+  <%= link_to 'Back to Weather Page', weather_path, class: "btn btn-secondary text-center" %>
+</div>
